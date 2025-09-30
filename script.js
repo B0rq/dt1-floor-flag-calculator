@@ -36,30 +36,31 @@ function applyValue(v) {
 }
 
 function render(v) {
-  hexOut.textContent = v.toString(16).toUpperCase().padStart(2, "0");
-  decOut.textContent = v.toString(10);
-  binOut.textContent = v.toString(2).padStart(8, "0");
+	hexOut.textContent = v.toString(16).toUpperCase().padStart(2, "0");
+	decOut.textContent = v.toString(10);
+	binOut.textContent = v.toString(2).padStart(8, "0");
 
-  // human description
-  const active = FLAG_META.filter((f) => v & f.bit).map((f) => f.label);
-  if (active.length === 0) {
-    desc.textContent = "Walkable";
-  } else {
-    const solidFirst = active.sort((a, b) =>
-      a.startsWith("Solid") ? -1 : b.startsWith("Solid") ? 1 : 0
-    );
-    desc.textContent = solidFirst.join(" + ");
-  }
+	// human description
+	const active = FLAG_META.filter((f) => v & f.bit).map((f) => f.label);
+	if (active.length === 0) {
+		desc.textContent = "Walkable";
+	} else {
+		const solidFirst = active.sort((a, b) =>
+			a.startsWith("Solid") ? -1 : b.startsWith("Solid") ? 1 : 0
+		);
+		desc.textContent = solidFirst.join(" + ");
+	}
 
-  // visual triangles
-  FLAG_META.forEach((f, i) => {
-    const elem = document.getElementById("ff" + (i + 1).toString().padStart(2, "0"));
-    if (elem) {
-      elem.style.display = (v & f.bit) ? "block" : "none";
-    }
-  });
+	// visual triangles
+	FLAG_META.forEach((f, i) => {
+		const elem = document.getElementById(
+			"ff" + (i + 1).toString().padStart(2, "0")
+		);
+		if (elem) {
+			elem.style.display = v & f.bit ? "block" : "none";
+		}
+	});
 }
-
 
 // events
 checkboxes.forEach((cb) =>
