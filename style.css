@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'exocetlight';
+    src: url('exocet-webfont.woff2') format('woff2'),
+         url('exocet-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
 	--bg: #111;
 	--panel: #1e1e1e;
@@ -5,12 +12,6 @@
 	--muted: #9aa0a6;
 	--border: #333;
 }
-/* @font-face {
-  font-family: 'Exocet';
-  src: url('exocet.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} */
 * {
 	box-sizing: border-box;
 }
@@ -36,7 +37,7 @@ h1.card-title {
 	font-size: 2rem;
 	margin: 0 0 0.75rem;
 	text-align: center;
-	font-family: "Exocet";
+	font-family: "exocetlight";
 	font-weight: 500;
 	color: #c7b377;
 	text-transform: uppercase;
