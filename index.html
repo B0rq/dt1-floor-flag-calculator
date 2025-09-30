@@ -11,27 +11,27 @@
   <link rel="stylesheet" href="style.css" />
 </head>
   <body>
-   <div class="card">
-	<h1 class="card-title">DT1 Floor Flag Calculator</h1>
+  	<div class="card">
+	<h1 class="card-title uppercase">DT1 Floor Flag Calculator</h1>
 	<div class="sub">Toggle bits, pick a preset, or paste a hex code to decode.</div>
 
 	<div class="section-title">Flags (bitmask)</div>
 	<div class="grid three flags" id="flags">
-		<label><input type="checkbox" data-bit="0x01"><span class="flag ff01"></span> 01 – Block Walk</label>
-		<label><input type="checkbox" data-bit="0x02"><span class="flag ff02"></span> 02 – Block Light + Line of Sight</label>
-		<label><input type="checkbox" data-bit="0x04"><span class="flag ff03"></span> 04 – Block Jump / Teleport</label>
-		<label><input type="checkbox" data-bit="0x08"><span class="flag ff04"></span> 08 – Block Player Walk (not mercenary)</label>
-		<label><input type="checkbox" data-bit="0x10"><span class="flag ff05"></span> 10 – Block Missiles</label>
-		<label><input type="checkbox" data-bit="0x20"><span class="flag ff06"></span> 20 – Block Light</label>
-		<label><input type="checkbox" data-bit="0x40"><span class="flag ff07"></span> 40 – Monster-only Block</label>
-		<label><input type="checkbox" data-bit="0x80"><span class="flag ff08"></span> 80 – Reserved / Unknown</label>
+		<label><input type="checkbox" data-bit="0x01"><span class="flag ff01"></span><span class="fira-code-font">01</span> – Block Walk</label>
+		<label><input type="checkbox" data-bit="0x02"><span class="flag ff02"></span><span class="fira-code-font">02</span> – Block Light + Line of Sight</label>
+		<label><input type="checkbox" data-bit="0x04"><span class="flag ff03"></span><span class="fira-code-font">04</span> – Block Jump / Teleport</label>
+		<label><input type="checkbox" data-bit="0x08"><span class="flag ff04"></span><span class="fira-code-font">08</span> – Block Player Walk (not mercenary)</label>
+		<label><input type="checkbox" data-bit="0x10"><span class="flag ff05"></span><span class="fira-code-font">10</span> – Block Missiles</label>
+		<label><input type="checkbox" data-bit="0x20"><span class="flag ff06"></span><span class="fira-code-font">20</span> – Block Light</label>
+		<label><input type="checkbox" data-bit="0x40"><span class="flag ff07"></span><span class="fira-code-font">40</span> – Monster-only Block</label>
+		<label><input type="checkbox" data-bit="0x80"><span class="flag ff08"></span><span class="fira-code-font">80</span> – Reserved / Unknown</label>
 	</div>
 
-	<div class="result">
-		<div class="hex" id="hexOut">00</div>
+	<div class="result fira-code-font">
+		<div class="hex uppercase" id="hexOut">00</div>
 		<div class="aux">
-			<div><span>DEC:</span> <code id="decOut">0</code></div>
-			<div><span>BIN:</span> <code id="binOut">00000000</code></div>
+			<div><span class="uppercase">DEC:</span> <code id="decOut">0</code></div>
+			<div><span class="uppercase">BIN:</span> <code id="binOut">00000000</code></div>
 		</div>
 	</div>
 
@@ -50,19 +50,19 @@
 
 	<div class="section-title">Quick Presets — Common Combos</div>
 	<div class="presets" id="comboPresets">
-		<button class="chip" data-hex="10" title="Blocks Light">10</button>
-		<button class="chip" data-hex="11" title="Solid + Blocks Light">11</button>
-		<button class="chip" data-hex="12" title="No Teleport + Blocks Light">12</button>
-		<button class="chip" data-hex="14" title="Blocks Missiles + Blocks Light">14</button>
-		<button class="chip" data-hex="18" title="Blocks LoS + Blocks Light">18</button>
-		<button class="chip" data-hex="30" title="Automap Blocker + Blocks Light">30</button>
-		<button class="chip" data-hex="40" title="Monster-only Block">40</button>
-		<button class="chip" data-hex="41" title="Solid + Monster-only Block (solid dominates)">41</button>
-		<button class="chip" data-hex="50" title="Monster-only Block + Blocks Light">50</button>
+		<button class="chip fira-code-font" data-hex="10" title="Blocks Light">10</button>
+		<button class="chip fira-code-font" data-hex="11" title="Solid + Blocks Light">11</button>
+		<button class="chip fira-code-font" data-hex="12" title="No Teleport + Blocks Light">12</button>
+		<button class="chip fira-code-font" data-hex="14" title="Blocks Missiles + Blocks Light">14</button>
+		<button class="chip fira-code-font" data-hex="18" title="Blocks LoS + Blocks Light">18</button>
+		<button class="chip fira-code-font" data-hex="30" title="Automap Blocker + Blocks Light">30</button>
+		<button class="chip fira-code-font" data-hex="40" title="Monster-only Block">40</button>
+		<button class="chip fira-code-font" data-hex="41" title="Solid + Monster-only Block (solid dominates)">41</button>
+		<button class="chip fira-code-font" data-hex="50" title="Monster-only Block + Blocks Light">50</button>
 	</div>
 
 	<div class="section-title">Decode Hex &raquo; Checkboxes</div>
-	<input id="decodeIn" type="text" placeholder="e.g. 5A" maxlength="2" />
+	<input id="decodeIn" type="text" placeholder="e.g. 5A" maxlength="2" class="uppercase fira-code-font" />
 
 	<div class="desc" id="desc">Walkable</div>
 
