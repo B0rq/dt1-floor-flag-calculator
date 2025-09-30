@@ -10,14 +10,14 @@ const desc = document.getElementById("desc");
 const comboPresets = document.getElementById("comboPresets");
 
 const FLAG_META = [
-	{ bit: 0x01, label: "Block Walk (orange)" },
-	{ bit: 0x02, label: "Block Light + Line of Sight (green)" },
-	{ bit: 0x04, label: "Block Jump / Teleport (blue)" },
-	{ bit: 0x08, label: "Block Player Walk (not mercenary) (purple)" },
-	{ bit: 0x10, label: "Block Missiles (yellow)" },
-	{ bit: 0x20, label: "Block Light (gray)" },
-	{ bit: 0x40, label: "Monster-only Block (white)" },
-	{ bit: 0x80, label: "Reserved / Unknown (tan)" }
+	{ bit: 0x01, label: "Block Walk" },
+	{ bit: 0x02, label: "Block Light + Line of Sight" },
+	{ bit: 0x04, label: "Block Jump / Teleport" },
+	{ bit: 0x08, label: "Block Player Walk (not mercenary)" },
+	{ bit: 0x10, label: "Block Missiles" },
+	{ bit: 0x20, label: "Block Light" },
+	{ bit: 0x40, label: "Monster-only Block" },
+	{ bit: 0x80, label: "Reserved / Unknown" }
 ];
 
 function valueFromChecks() {
@@ -36,22 +36,30 @@ function applyValue(v) {
 }
 
 function render(v) {
-	hexOut.textContent = v.toString(16).toUpperCase().padStart(2, "0");
-	decOut.textContent = v.toString(10);
-	binOut.textContent = v.toString(2).padStart(8, "0");
+  hexOut.textContent = v.toString(16).toUpperCase().padStart(2, "0");
+  decOut.textContent = v.toString(10);
+  binOut.textContent = v.toString(2).padStart(8, "0");
 
-	// human description
-	const active = FLAG_META.filter((f) => v & f.bit).map((f) => f.label);
-	if (active.length === 0) {
-		desc.textContent = "Walkable";
-	} else {
-		// if Solid is set, make that clear up front
-		const solidFirst = active.sort((a, b) =>
-			a.startsWith("Solid") ? -1 : b.startsWith("Solid") ? 1 : 0
-		);
-		desc.textContent = solidFirst.join(" + ");
-	}
+  // human description
+  const active = FLAG_META.filter((f) => v & f.bit).map((f) => f.label);
+  if (active.length === 0) {
+    desc.textContent = "Walkable";
+  } else {
+    const solidFirst = active.sort((a, b) =>
+      a.startsWith("Solid") ? -1 : b.startsWith("Solid") ? 1 : 0
+    );
+    desc.textContent = solidFirst.join(" + ");
+  }
+
+  // visual triangles
+  FLAG_META.forEach((f, i) => {
+    const elem = document.getElementById("ff" + (i + 1).toString().padStart(2, "0"));
+    if (elem) {
+      elem.style.display = (v & f.bit) ? "block" : "none";
+    }
+  });
 }
+
 
 // events
 checkboxes.forEach((cb) =>
