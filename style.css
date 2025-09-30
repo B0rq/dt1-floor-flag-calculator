@@ -15,6 +15,9 @@
 	--gray: #919191;
 	--brick: #fa00d4;
 }
+* {
+	box-sizing: border-box;
+}
 .orange {
 	color: var(--orange);
 }
@@ -41,9 +44,6 @@
 }
 .brick {
 	color: var(--brick);
-}
-* {
-	box-sizing: border-box;
 }
 .fira-code-font {
 	font-family: "Fira Code", monospace;
