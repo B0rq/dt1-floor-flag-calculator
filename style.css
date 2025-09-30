@@ -66,7 +66,6 @@ input[type="checkbox"] {
 	margin-left: 39px;
 	transform: scale(1.15);
 }
-
 .result {
 	display: flex;
 	gap: 1rem;
@@ -151,7 +150,8 @@ select {
 }
 span.flag {
 	position: absolute;
-	top: 14px;
+	top: 50%;
+	margin-top: -7px;
 	left: 6px;
 }
 @media (max-width: 700px) {
