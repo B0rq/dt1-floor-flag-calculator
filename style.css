@@ -5,12 +5,12 @@
 	--muted: #9aa0a6;
 	--border: #333;
 }
-@font-face {
+/* @font-face {
   font-family: 'Exocet';
   src: url('exocet.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 * {
 	box-sizing: border-box;
 }
@@ -38,7 +38,7 @@ h1.card-title {
 	text-align: center;
 	font-family: "Exocet";
 	font-weight: 500;
-	color:#C7B377;
+	color: #c7b377;
 	text-transform: uppercase;
 }
 .sub {
