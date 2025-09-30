@@ -15,7 +15,6 @@
 	<h1 class="card-title">DT1 Floor Flag Calculator</h1>
 	<div class="sub">Toggle bits, pick a preset, or paste a hex code to decode.</div>
 
-	<!-- FLAGS -->
 	<div class="section-title">Flags (bitmask)</div>
 	<div class="grid three flags" id="flags">
 		<label><input type="checkbox" data-bit="0x01"><span class="flag ff01"></span> 01 – Block Walk</label>
@@ -28,7 +27,6 @@
 		<label><input type="checkbox" data-bit="0x80"><span class="flag ff08"></span> 80 – Reserved / Unknown</label>
 	</div>
 
-	<!-- RESULT -->
 	<div class="result">
 		<div class="hex" id="hexOut">00</div>
 		<div class="aux">
@@ -37,7 +35,6 @@
 		</div>
 	</div>
 
-	<!-- QUICK SINGLES -->
 	<select id="quickSingles">
 		<option value="">-- choose --</option>
 		<option value="00">00 – Walkable</option>
@@ -51,7 +48,6 @@
 		<option value="80">80 – Reserved / Unknown</option>
 	</select>
 
-	<!-- COMMON COMBOS (your list) -->
 	<div class="section-title">Quick Presets — Common Combos</div>
 	<div class="presets" id="comboPresets">
 		<button class="chip" data-hex="10" title="Blocks Light">10</button>
@@ -65,14 +61,11 @@
 		<button class="chip" data-hex="50" title="Monster-only Block + Blocks Light">50</button>
 	</div>
 
-	<!-- DECODER -->
 	<div class="section-title">Decode Hex &raquo; Checkboxes</div>
 	<input id="decodeIn" type="text" placeholder="e.g. 5A" maxlength="2" />
 
-	<!-- DESCRIPTION -->
 	<div class="desc" id="desc">Walkable</div>
 
-	<!-- Symbols -->
 	<div class="desc visual">
 		<div id="ff01" class="ff01"></div>
 		<div id="ff02" class="ff02"></div>
