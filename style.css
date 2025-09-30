@@ -5,6 +5,12 @@
 	--muted: #9aa0a6;
 	--border: #333;
 }
+@font-face {
+  font-family: 'Exocet';
+  src: url('exocet.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
 	box-sizing: border-box;
 }
@@ -26,10 +32,14 @@ body {
 	padding: 1.25rem 1.5rem;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
-h1 {
-	font-size: 1.25rem;
+h1.card-title {
+	font-size: 2rem;
 	margin: 0 0 0.75rem;
 	text-align: center;
+	font-family: "Exocet";
+	font-weight: 500;
+	color:#C7B377;
+	text-transform: uppercase;
 }
 .sub {
 	color: var(--muted);
@@ -170,11 +180,12 @@ span.flag {
 	position: relative;
 	width: 66px;
 	height: 50px;
-	/* 	zoom: 200%; */
+	zoom: 200%;
 }
 .visual > * {
 	position: absolute;
 	margin: -10.5px 0 0 -30px;
+	display: none;
 }
 .ff01 {
 	width: 1px;
