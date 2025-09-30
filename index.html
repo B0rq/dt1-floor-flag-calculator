@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>DT1 Floor Flag Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Browser-based calculator to decode Diablo II DT1/DS1 sub-tile floor flags with presets and hex decoding." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+  <body>
+    <div class="card">
+	<h1>DT1 Floor Flag Calculator</h1>
+	<div class="sub">Toggle bits, pick a preset, or paste a hex code to decode.</div>
+
+	<!-- FLAGS -->
+	<div class="section-title">Flags (bitmask)</div>
+	<div class="grid three flags" id="flags">
+		<label><input type="checkbox" data-bit="0x01"><span class="flag ff01"></span> 01 – Block Walk</label>
+		<label><input type="checkbox" data-bit="0x02"><span class="flag ff02"></span> 02 – Block Light + Line of Sight</label>
+		<label><input type="checkbox" data-bit="0x04"><span class="flag ff03"></span> 04 – Block Jump / Teleport</label>
+		<label><input type="checkbox" data-bit="0x08"><span class="flag ff04"></span> 08 – Block Player Walk (not mercenary)</label>
+		<label><input type="checkbox" data-bit="0x10"><span class="flag ff05"></span> 10 – Block Missiles</label>
+		<label><input type="checkbox" data-bit="0x20"><span class="flag ff06"></span> 20 – Block Light</label>
+		<label><input type="checkbox" data-bit="0x40"><span class="flag ff07"></span> 40 – Monster-only Block</label>
+		<label><input type="checkbox" data-bit="0x80"><span class="flag ff08"></span> 80 – Reserved / Unknown</label>
+	</div>
+
+	<!-- RESULT -->
+	<div class="result">
+		<div class="hex" id="hexOut">00</div>
+		<div class="aux">
+			<div><span>DEC:</span> <code id="decOut">0</code></div>
+			<div><span>BIN:</span> <code id="binOut">00000000</code></div>
+		</div>
+	</div>
+
+	<!-- QUICK SINGLES -->
+	<select id="quickSingles">
+		<option value="">-- choose --</option>
+		<option value="00">00 – Walkable</option>
+		<option value="01">01 – Block Walk</option>
+		<option value="02">02 – Block Light + LOS</option>
+		<option value="04">04 – Block Jump / Teleport</option>
+		<option value="08">08 – Block Player Walk (not merc)</option>
+		<option value="10">10 – Block Missiles</option>
+		<option value="20">20 – Block Light</option>
+		<option value="40">40 – Monster-only Block</option>
+		<option value="80">80 – Reserved / Unknown</option>
+	</select>
+
+	<!-- COMMON COMBOS (your list) -->
+	<div class="section-title">Quick Presets — Common Combos</div>
+	<div class="presets" id="comboPresets">
+		<!-- include everything you asked for -->
+		<button class="chip" data-hex="10" title="Blocks Light">10</button>
+		<button class="chip" data-hex="11" title="Solid + Blocks Light">11</button>
+		<button class="chip" data-hex="12" title="No Teleport + Blocks Light">12</button>
+		<button class="chip" data-hex="14" title="Blocks Missiles + Blocks Light">14</button>
+		<button class="chip" data-hex="18" title="Blocks LoS + Blocks Light">18</button>
+		<button class="chip" data-hex="30" title="Automap Blocker + Blocks Light">30</button>
+		<button class="chip" data-hex="40" title="Monster-only Block">40</button>
+		<button class="chip" data-hex="41" title="Solid + Monster-only Block (solid dominates)">41</button>
+		<button class="chip" data-hex="50" title="Monster-only Block + Blocks Light">50</button>
+	</div>
+
+	<!-- DECODER -->
+	<div class="section-title">Decode Hex &raquo; Checkboxes</div>
+	<input id="decodeIn" type="text" placeholder="e.g. 5A" maxlength="2" />
+
+	<!-- DESCRIPTION -->
+	<div class="desc" id="desc">Walkable</div>
+
+	<!-- Symbols -->
+	<div class="desc visual">
+		<div id="ff01" class="ff01"></div>
+		<div id="ff02" class="ff02"></div>
+		<div id="ff03" class="ff03"></div>
+		<div id="ff04" class="ff04"></div>
+		<div id="ff05" class="ff05"></div>
+		<div id="ff06" class="ff06"></div>
+		<div id="ff07" class="ff07"></div>
+		<div id="ff08" class="ff08"></div>
+		<div id="ff09" class="ff09"></div>
+	</div>
+
+</div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
